@@ -9,13 +9,15 @@ boost_program_options
 
 build
 -----
-scons is needed, so if it is installed run 
+scons is needed, so if it is installed run
 > scons
-after build process was successfully you can use im_sort
+
+after build process was successfully you can use im_sort, e.g.
 
 >./im_sort -h
 >Allowed options:
 >  -h [ --help ]         produce help message
 >  -f [ --file ] arg     input file
 >  -o [ --output ] arg   output file
-default read from stdin and output to stdout
+
+im_sort defaults behavior is read from stdin and output to stdout.
