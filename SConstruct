@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 """
     author: Steve Göring
     contact: stg7@gmx.de
@@ -26,7 +27,7 @@ import multiprocessing
 
 SetOption('num_jobs', multiprocessing.cpu_count()) # build with all aviable cpu cores/threads
 
-stylechecker = Builder(action='./testConvention.pl $SOURCES', suffix='', src_suffix='')
+stylechecker = Builder(action='./test_convention.sh $SOURCES', suffix='', src_suffix='')
 valgrind = Builder(action='valgrind ./$SOURCES', suffix='', src_suffix='')
 
 
@@ -46,7 +47,7 @@ for l in libs:
         sys.exit(-1)
 
 
-env.Append(CXXFLAGS=['-std=c++0x']) # better -std=c++11
+env.Append(CXXFLAGS=['-std=c++11'])
 
 # if you call scons debug=1 debug build is activated
 if ARGUMENTS.get('debug', 0) != 0:
