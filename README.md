@@ -21,4 +21,4 @@ after build process was successfully you can use im_sort, e.g.
      -f [ --file ] arg     input file
      -o [ --output ] arg   output file
 
-im_sort defaults behavior is read from stdin and output to stdout.
+im_sort defaults behavior is to read from stdin and do the output to stdout.
