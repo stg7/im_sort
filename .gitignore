@@ -1,1 +1,5 @@
 im_sort
+.sconf_temp
+.sconsign.dblite
+config.log
+main.o
