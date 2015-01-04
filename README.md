@@ -5,7 +5,9 @@ in memory sort replacement for sort command in linux systems
 
 requirements
 -----------
-boost_program_options
+* boost_program_options
+* scons
+* g++
 
 build
 -----
