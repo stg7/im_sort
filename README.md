@@ -16,7 +16,7 @@ scons is needed, so if it is installed run
 
 after build process was successfully you can use im_sort, e.g.
 
->./im_sort -h
+> ./im_sort -h
 
     Allowed options:
      -h [ --help ]         produce help message
@@ -24,3 +24,4 @@ after build process was successfully you can use im_sort, e.g.
      -o [ --output ] arg   output file
 
 im_sort defaults behavior is to read from stdin and do the output to stdout.
+It can be changed with the flags -f and -o to files
