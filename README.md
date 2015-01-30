@@ -69,7 +69,9 @@ so a few benchmark values tested on my system:
 <div id="chart_div" style="width: 90%; height: 100px;"></div>
 
 
-![Benchmark results](bench.svg)
+![Benchmark results](https://raw.githubusercontent.com/stg7/im_sort/master/bench.svg)
+![Alt text](/bench.svg?raw=true "Optional Title")
+
 * generally im_sort is quite faster than default sort
 * default sort is using external sorting to handle large files, however it uses this algorithm in every case
 * improvement ideas:
