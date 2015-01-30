@@ -49,11 +49,10 @@ so a few benchmark values tested on my system:
   google.setOnLoadCallback(drawChart);
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
-      ['dataset', 'im_sort', 'sort'],
+      ['dataset', 'imsort', 'sort'],
       ['(A)', 1.310, 3.232],
       ['(B)', 7.753, 23.192],
-      ['(C)', 106.99, 381.97],
-
+      ['(C)', 106.99, 381.97]
     ]);
 
     var options = {
@@ -64,9 +63,13 @@ so a few benchmark values tested on my system:
 
     chart.draw(data, options);
   }
+
+
 </script>
 <div id="chart_div" style="width: 90%; height: 100px;"></div>
 
+
+![Benchmark results](bench.svg)
 * generally im_sort is quite faster than default sort
 * default sort is using external sorting to handle large files, however it uses this algorithm in every case
 * improvement ideas:
