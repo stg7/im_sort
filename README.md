@@ -40,7 +40,7 @@ so a few benchmark values tested on my system:
     * (B): labels_en_uris_de.nt (approx 97mb)
     * (C): labels_en (approx 1.4gb)
 * command (for sort and im_sort):
-* > time cat dataset | SORT > OUT
+  > time cat dataset | SORT > OUT
 
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
