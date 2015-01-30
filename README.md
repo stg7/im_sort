@@ -70,7 +70,7 @@ so a few benchmark values tested on my system:
 
 
 ![Benchmark results](https://raw.githubusercontent.com/stg7/im_sort/master/bench.svg)
-![Alt text](/bench.svg?raw=true "Optional Title")
+![Alt text](/bench.png?raw=true "Optional Title")
 
 * generally im_sort is quite faster than default sort
 * default sort is using external sorting to handle large files, however it uses this algorithm in every case
