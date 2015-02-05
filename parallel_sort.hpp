@@ -40,7 +40,7 @@
 template<typename T>
 inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
 
-    if(parts == -1) { // default case: use all aviable cpu cores
+    if (parts == -1) { // default case: use all aviable cpu cores
         parts = std::thread::hardware_concurrency();
     }
 
@@ -50,7 +50,7 @@ inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
     size_t reminder = V.size() % parts;
     size_t N1 = 0, N2 = 0;
     bnd[0] = N1;
-    for(size_t i = 0; i < parts; ++i) {
+    for (size_t i = 0; i < parts; ++i) {
         N2 = N1 + delta;
         if (i == parts - 1)
             N2 += reminder;
@@ -62,7 +62,7 @@ inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
     thr.reserve(parts);
 
     // create threads for each part and sort parts
-    for(size_t i = 0; i < parts; i++) {
+    for (size_t i = 0; i < parts; i++) {
         thr.emplace_back(
             std::thread(
                 [](std::vector<T>& V, const size_t left, const size_t right) {
@@ -71,7 +71,7 @@ inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
             ));
     }
 
-    for(auto& t : thr) {
+    for (auto& t : thr) {
         t.join();
     }
     thr.clear();
@@ -82,8 +82,8 @@ inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
 
     // merge two parts together
 
-    while(parts >= 2) {
-        for(size_t i = 0; i < parts - 1; i += 2) {
+    while (parts >= 2) {
+        for (size_t i = 0; i < parts - 1; i += 2) {
             thr.emplace_back(
                 std::thread(
                     [](std::vector<T>& V, size_t n0, size_t n1, size_t n2, size_t n3) {
@@ -91,8 +91,8 @@ inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
                     }, std::ref(V), bnd[i], bnd[i + 1], bnd[i + 1], bnd[i + 2]));
 
             size_t naux = limits.size();
-            if(naux > 0) {
-                if(limits[naux - 1] != bnd[i]) {
+            if (naux > 0) {
+                if (limits[naux - 1] != bnd[i]) {
                     limits.emplace_back(bnd[i]);
                 }
                 limits.emplace_back(bnd[i + 2]);
@@ -103,7 +103,7 @@ inline void parallel_sort(std::vector<T>& V, size_t parts = -1) {
             }
         }
 
-        for(auto& t : thr) {
+        for (auto& t : thr) {
             t.join();
         }
 

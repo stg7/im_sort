@@ -65,7 +65,7 @@ int main(int argc, const char* argv[]) {
     po::store(po::parse_command_line(argc, argv, desc), vm);
     po::notify(vm);
 
-    if(vm.count("help") ) {
+    if (vm.count("help") ) {
         std::cout << desc << std::endl;
         return 1;
     }
@@ -74,7 +74,7 @@ int main(int argc, const char* argv[]) {
     std::streambuf* obuf = std::cout.rdbuf();
     std::ofstream of;
 
-    if(vm.count("output") != 0) {
+    if (vm.count("output") != 0) {
         std::string ofile = vm["output"].as<std::string>();
         of.open(ofile.c_str());
         obuf = of.rdbuf();
@@ -86,7 +86,7 @@ int main(int argc, const char* argv[]) {
     std::streambuf* ibuf = std::cin.rdbuf();
     std::ifstream ifn;
 
-    if(vm.count("file") != 0) {
+    if (vm.count("file") != 0) {
         std::string filename = vm["file"].as<std::string>();
         ifn.open(filename.c_str());
         ibuf = ifn.rdbuf();
@@ -97,7 +97,7 @@ int main(int argc, const char* argv[]) {
     std::string line = "";
     std::vector<std::string> lines;
 
-    while(std::getline(infile, line)) {
+    while (std::getline(infile, line)) {
         line.shrink_to_fit(); // save memory
         lines.emplace_back(line);
     }
@@ -105,7 +105,7 @@ int main(int argc, const char* argv[]) {
     // start sorting
     parallel_sort(lines);
 
-    for(std::string& s: lines) {
+    for (std::string& s: lines) {
         out << s << std::endl;
     }
 
