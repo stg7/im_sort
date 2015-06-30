@@ -60,7 +60,7 @@ else:
     env.Append(CCFLAGS=['-O3']) # 03
 
     # loop unrolling and link time optimization, options should be testet
-    env.Append(CCFLAGS=['-funroll-loops', '-flto', '-fwhole-program'])
+    #env.Append(CCFLAGS=['-funroll-loops', '-flto', '-fwhole-program'])
 
 sources = ["main.cpp"] + glob.glob("src/*.cpp")
 

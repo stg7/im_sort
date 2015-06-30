@@ -52,6 +52,9 @@ std::size_t count_lines(std::string filename) {
     simple sorter
 **/
 int main(int argc, const char* argv[]) {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(0);
+
     namespace po = boost::program_options;
 
     // declare the supported options.
@@ -81,6 +84,8 @@ int main(int argc, const char* argv[]) {
     }
     std::ostream out(obuf);
 
+    out.sync_with_stdio(false);
+
 
     // set input stream
     std::streambuf* ibuf = std::cin.rdbuf();
@@ -93,6 +98,7 @@ int main(int argc, const char* argv[]) {
     }
     std::istream infile(ibuf);
 
+    infile.sync_with_stdio(false);
 
     std::string line = "";
     std::vector<std::string> lines;
@@ -106,7 +112,7 @@ int main(int argc, const char* argv[]) {
     parallel_sort(lines);
 
     for (std::string& s: lines) {
-        out << s << std::endl;
+        out << s << "\n";
     }
 
     return 0;
